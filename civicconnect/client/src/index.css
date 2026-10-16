@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { color-scheme: dark; }
+  *, ::before, ::after { @apply border-slate-200; }          /* dark borders by default */
+  body {
+    @apply font-sans antialiased;
+    background:
+      radial-gradient(1100px 600px at 8% -10%, rgba(34, 211, 238, .10), transparent 60%),
+      radial-gradient(900px 500px at 100% 0%, rgba(99, 102, 241, .13), transparent 55%),
+      #070d1a;
+    background-attachment: fixed;
+  }
+  h1, h2, h3 { @apply font-display tracking-tight; }
+  select option { background: #0f1a30; color: #e0e7f4; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-thumb { background: #2b3d61; border-radius: 9999px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+}
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-400 to-teal-400 px-4 py-2 text-sm font-semibold text-ink-950 shadow-glow transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-secondary { @apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-ink-700/60 px-4 py-2 text-sm font-medium text-slate-800 transition hover:border-cyan-400/50 hover:bg-ink-700 disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-danger { @apply inline-flex items-center justify-center gap-2 rounded-xl bg-rose-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-rose-600 disabled:cursor-not-allowed disabled:opacity-50; }
+  .input { @apply w-full rounded-xl border border-slate-300 bg-ink-900/80 px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/30; }
+  .label { @apply mb-1 block text-xs font-semibold uppercase tracking-wider text-slate-500; }
+  .card { @apply rounded-2xl border border-slate-200 bg-ink-800/70 p-4 shadow-lg shadow-black/20 backdrop-blur; }
+  .err { @apply mt-1 text-xs text-rose-400; }
+}
+
+/* ---------- Map (dark tiles + themed controls) ---------- */
+.marker-dot { display: block; width: 18px; height: 18px; border-radius: 9999px; border: 3px solid #e0e7f4; box-shadow: 0 0 10px rgba(0,0,0,.6); }
+.leaflet-container { font-family: inherit; background: #0a1222; }
+.leaflet-tile-pane { filter: invert(1) hue-rotate(190deg) brightness(.92) contrast(.95) saturate(.65); }
+.leaflet-popup-content-wrapper, .leaflet-popup-tip { background: #0f1a30; color: #e0e7f4; border: 1px solid #1b2a47; }
+.leaflet-popup-content a { color: #22d3ee; }
+.leaflet-bar a { background: #0f1a30; color: #e0e7f4; border-bottom-color: #1b2a47; }
+.leaflet-bar a:hover { background: #16233f; }
+.leaflet-control-attribution { background: rgba(10, 18, 34, .85) !important; color: #8fa3c7 !important; }
+.leaflet-control-attribution a { color: #67e8f9 !important; }

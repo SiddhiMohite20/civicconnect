@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: civicconnect-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - { key: NODE_ENV, value: production }
+      - { key: MONGODB_URI, sync: false }
+      - { key: JWT_ACCESS_SECRET, generateValue: true }
+      - { key: CLIENT_ORIGIN, sync: false }
+      - { key: PUBLIC_URL, sync: false }
+      - { key: CLOUDINARY_CLOUD_NAME, sync: false }
+      - { key: CLOUDINARY_API_KEY, sync: false }
+      - { key: CLOUDINARY_API_SECRET, sync: false }
+      - { key: GEOCODER_USER_AGENT, sync: false }
