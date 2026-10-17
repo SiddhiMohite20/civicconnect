@@ -1,16 +1,17 @@
 
 # Dependencies
-node_modules/
+**/node_modules/
 
 # All environment files
 .env
 .env.*
-**/.env
-**/.env.*
 
-# Uploaded files
-uploads/
+# Uploads
+**/uploads/
 
 # Build output
-dist/
-build/
+**/dist/
+**/build/
+
+# Logs
+npm-debug.log*
