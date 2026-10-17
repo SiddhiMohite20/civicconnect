@@ -1,4 +1,16 @@
-node_modules
-dist
+
+# Dependencies
+node_modules/
+
+# All environment files
 .env
-uploads
+.env.*
+**/.env
+**/.env.*
+
+# Uploaded files
+uploads/
+
+# Build output
+dist/
+build/
